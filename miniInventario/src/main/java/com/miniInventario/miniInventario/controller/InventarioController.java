@@ -40,9 +40,7 @@ public class InventarioController {
 
     @PutMapping("/api/inventario/update")
     public Inventario updateInventario(@RequestBody Inventario inventario){
-        inventario.setPrecio(0);
-        inventarioService.updateInventario(inventario);
-        return inventario;
+        return inventarioService.updateInventario(inventario);
     }
 
     @GetMapping("/api/inventario/reverse")

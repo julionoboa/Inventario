@@ -47,21 +47,19 @@ public class InventarioServiceImpl implements InventarioService {
     }
 
     @Override
-    public void updateInventario(Inventario inventario) {
+    public Inventario updateInventario(Inventario inventario) {
         if (inventario.getId() == null) {
             Inventario inv = inventarioRepository.getInventarioName(inventario.getNombre());
             inv.setCantidad(inventario.getCantidad());
             inv.setUltimaActualizacion(LocalDateTime.now());
-            inventario.setPrecio(inv.getPrecio());
-            inventario.setId(inv.getId());
-            inventario.setUltimaActualizacion(inv.getUltimaActualizacion());
+            inventarioRepository.updateInventario(inv);
+            return inv;
         } else {
             Inventario inv = inventarioRepository.getInventarioId(inventario.getId());
             inv.setCantidad(inventario.getCantidad());
             inv.setUltimaActualizacion(LocalDateTime.now());
-            inventario.setNombre(inv.getNombre());
-            inventario.setUltimaActualizacion(inv.getUltimaActualizacion());
-            inventario.setPrecio(inv.getPrecio());
+            inventarioRepository.updateInventario(inv);
+            return inv;
         }
     }
 

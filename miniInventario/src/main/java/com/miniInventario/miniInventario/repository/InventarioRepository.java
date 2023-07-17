@@ -41,8 +41,8 @@ public class InventarioRepository {
         throw new RuntimeException("No se encontró el valor");
     }
 
-    public void updateInventario(Inventario inventario){
-        inventarioMap.put(inventario.getId(), inventario);
+    public Inventario updateInventario(Inventario inventario){
+        return inventarioMap.put(inventario.getId(), inventario);
     }
 
     public List<Inventario> reverseOrder(){

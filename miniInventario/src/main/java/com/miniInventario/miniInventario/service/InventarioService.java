@@ -10,6 +10,6 @@ public interface InventarioService {
     Inventario getInventarioId(Integer id);
     Inventario getInventarioName(String search);
     List<Inventario> getAll();
-    void updateInventario(Inventario inventario);
+    Inventario updateInventario(Inventario inventario);
     List<Inventario> reverseOrder();
 }
